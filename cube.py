@@ -42,7 +42,7 @@ class Cube(object):
         normal = (impact - self.center).norm()
 
         return Intersect(
-            distance = min_t, 
-            point = impact, 
-            normal = normal,
+            distance=min_t, 
+            point=impact, 
+            normal=normal,
         )
