@@ -20,6 +20,8 @@ black = Material(difusse=Color(0, 0, 0), albedo = [1.3, 0.1, 0, 0], spec = 50, r
 silver = Material(difusse=Color(192, 192, 192), albedo = [1.3, 0.1, 0, 0], spec = 50, refractive=20)
 light_brown = Material(difusse=Color(204, 102, 53), albedo = [1.3, 0.1, 0, 0], spec = 30, refractive=20)
 apricot = Material(difusse=Color(242, 178, 140), albedo = [1.3, 0.1, 0, 0], spec = 30, refractive=20)
+tree_leaves = Material(difusse=Color(2,105,57), albedo=[1, 0.1, 0.3, 0], spec=50, refractive=50)
+tree_log = Material(difusse=Color(108,66,39), albedo=[1, 0.1, 0.3, 0], spec=50, refractive=50)
 
 
 r = RayTracer(1024, 1024)
@@ -27,10 +29,10 @@ r.light = Light(V3(0, 0, 0), 1, Color(255, 255, 255))
 # r.setBackground(Envmap('./background.bmp'))
 r.scene = [
     
-    Cube(V3(0, 1.8, -6.5), 0.6, silver),
-    # Triangle((V3(-2,0.5,-5),V3(-1.5,-0.45,-5),V3(-1,0.5,-5)), red),
-    # Triangle((V3(-2.5 ,1,-5),V3(-1.5, 0.40,-5),V3(-0.5,1,-5)), red),
-    Pyramid((V3(-4.5, 3, -10), V3(1, 3, -10), V3(-2.25, -1, -9), V3(-2.25, 3, -8)), orange),
+    Pyramid((V3(-4.5, 0, -10), V3(0, 0, -9), V3(-1.5, -1, -9), V3(-3, 0, -9)), tree_leaves),
+    Pyramid((V3(-4.5, 1, -10), V3(1, 1, -9), V3(-1.5, -0.5, -9), V3(-4, 1, -9)), tree_leaves),
+    Pyramid((V3(-4.5, 2.5, -10), V3(2, 2.5, -9), V3(-1.5, 0.5, -9), V3(-5, 2.5, -9)), tree_leaves),
+    Cube(V3(-1.5, 2.95, -9), 1, tree_log),
 
 ]
 r.render()
