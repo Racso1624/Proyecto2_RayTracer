@@ -11,7 +11,7 @@ class Triangle(object):
     self.v1, self.v2, self.v3  = vertices
     self.material = material
 
-  def ray_interception(self, origin, direction):
+  def ray_intersect(self, origin, direction):
 
     edge_1 = (self.v2 - self.v1)
     edge_2 = (self.v3 - self.v1)
@@ -29,7 +29,7 @@ class Triangle(object):
       return None
 
     tvec = ((origin - self.v1) * edge_1)
-    v = tilt_inv * (direction @ qvec)
+    v = tilt_inv * (direction @ tvec)
 
     if ((v < 0) or ((u + v) > 1)):
       return None

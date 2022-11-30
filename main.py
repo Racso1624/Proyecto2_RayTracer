@@ -9,6 +9,7 @@ from vector import *
 from raytracer import *
 from color import *
 from cube import *
+from triangle import *
 
 red = Material(difusse=Color(255, 0, 0), albedo = [1.3, 0.1, 0, 0], spec = 50, refractive=20)
 white = Material(difusse=Color(255, 255, 255), albedo = [1.3, 0.1, 0, 0], spec = 40, refractive=20)
@@ -24,6 +25,7 @@ r.light = Light(V3(0, 0, 0), 1, Color(255, 255, 255))
 r.scene = [
     
     Cube(V3(0, 1.8, -6.5), 0.6, silver),
+    Triangle((V3(-1, 0, -10), V3(-3, -2, -10), V3(-5, 0, -10)), silver)
 
 ]
 r.render()
