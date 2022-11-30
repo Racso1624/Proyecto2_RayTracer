@@ -27,7 +27,8 @@ r.setBackground(Envmap('./background.bmp'))
 r.scene = [
     
     Cube(V3(0, 1.8, -6.5), 0.6, silver),
-    Triangle((V3(-2.5,0.5,-5),V3(-2,-0.45,-5),V3(-1.5,0.5,-5)), silver),
+    Triangle((V3(-2,0.5,-5),V3(-1.5,-0.45,-5),V3(-1,0.5,-5)), silver),
+    Triangle((V3(-2.5 ,1,-5),V3(-1.5, 0.45,-5),V3(-0.5,1,-5)), silver),
 
 ]
 r.render()
