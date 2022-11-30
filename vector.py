@@ -1,7 +1,7 @@
 #Oscar Fernando López Barrios
 #Carné 20679
 #Gráficas Por Computadora
-#SR6
+#Proyecto 2
 
 class V3(object):
     

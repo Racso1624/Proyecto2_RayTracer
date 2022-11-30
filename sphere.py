@@ -1,3 +1,8 @@
+#Oscar Fernando López Barrios
+#Carné 20679
+#Gráficas Por Computadora
+#Proyecto 2
+
 from vector import *
 from intersect import *
 
