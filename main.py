@@ -52,7 +52,7 @@ r.scene = [
     Plane(V3(-3.3, 5, -11), 3, 6, light_brown),
 
     #Regalo
-    Cube(V3(1, 1.5, -4), 0.2, red_ball),
+    Cube(V3(1.23, 1.5, -4), 0.2, red_ball),
     Cube(V3(1.5, 2.2, -5), 0.5, apricot),
 
 ]
