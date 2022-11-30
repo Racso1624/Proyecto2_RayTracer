@@ -64,6 +64,9 @@ class RayTracer(object):
     def write(self, filename):
         Render.glFinish(self, filename)
 
+    def setBackground(self, background):
+        self.envmap = background
+
     def render(self):
         fov = int(pi/2)
         ar = self.width / self.height
@@ -81,10 +84,16 @@ class RayTracer(object):
         material, intersect = self.scene_intersect(origin, direction)
 
         if recursion == max_recursion_depth:
-            return self.clear_color
+            if(self.envmap):
+                 return self.envmap.getColor(direction)
+            else:
+                return self.clear_color
 
         if material is None:
-            return self.clear_color
+            if(self.envmap):
+                return self.envmap.getColor(direction)
+            else:
+                return self.clear_color
 
         light_direction = (self.light.position - intersect.point).norm()
         intensity = light_direction @ intersect.normal

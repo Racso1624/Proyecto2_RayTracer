@@ -10,6 +10,7 @@ from raytracer import *
 from color import *
 from cube import *
 from triangle import *
+from envmap import *
 
 red = Material(difusse=Color(255, 0, 0), albedo = [1.3, 0.1, 0, 0], spec = 50, refractive=20)
 white = Material(difusse=Color(255, 255, 255), albedo = [1.3, 0.1, 0, 0], spec = 40, refractive=20)
@@ -22,10 +23,11 @@ apricot = Material(difusse=Color(242, 178, 140), albedo = [1.3, 0.1, 0, 0], spec
 
 r = RayTracer(1024, 1024)
 r.light = Light(V3(0, 0, 0), 1, Color(255, 255, 255))
+r.setBackground(Envmap('./background.bmp'))
 r.scene = [
     
     Cube(V3(0, 1.8, -6.5), 0.6, silver),
-    Triangle((V3(-4.5,0.5,-5),V3(-4.5,-0.45,-5),V3(-2,0.6,-5.5)),1,silver),
+    Triangle((V3(-2.5,0.5,-5),V3(-2,-0.45,-5),V3(-1.5,0.5,-5)), silver),
 
 ]
 r.render()
