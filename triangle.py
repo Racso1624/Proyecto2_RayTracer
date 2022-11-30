@@ -13,33 +13,33 @@ class Triangle(object):
 
   def ray_intersect(self, origin, direction):
 
-    edge_1 = (self.v2 - self.v1)
-    edge_2 = (self.v3 - self.v1)
+    side_1 = (self.v2 - self.v1)
+    side_2 = (self.v3 - self.v1)
 
-    height = (direction * edge_2)
-    det = (edge_1 @ height)
+    vect = (direction * side_2)
+    det = (side_1 @ vect)
 
     if (-1E-06 < det < 1E-06):
       return None
 
-    tilt_inv = (1 / det)
-    u = tilt_inv * ((origin - self.v1) @ height)
+    det_inv = (1 / det)
+    u = det_inv * ((origin - self.v1) @ vect)
 
     if ((u < 0) or (u > 1)):
       return None
 
-    tvec = ((origin - self.v1) * edge_1)
-    v = tilt_inv * (direction @ tvec)
+    tvec = ((origin - self.v1) * side_1)
+    v = det_inv * (direction @ tvec)
 
     if ((v < 0) or ((u + v) > 1)):
       return None
 
-    qvec = tilt_inv * (edge_2 @ tvec)
+    qvec = det_inv * (side_2 @ tvec)
 
     if (qvec > 1E-06):
 
-      impact = (origin + (direction * tvec))
-      normal = (edge_1 * edge_2).norm()
+      impact = (origin + (direction * qvec))
+      normal = (side_1 * side_2).norm()
 
       return Intersect(
         distance=qvec,

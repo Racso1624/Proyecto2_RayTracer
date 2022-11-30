@@ -25,7 +25,7 @@ r.light = Light(V3(0, 0, 0), 1, Color(255, 255, 255))
 r.scene = [
     
     Cube(V3(0, 1.8, -6.5), 0.6, silver),
-    Triangle((V3(-1, 0, -10), V3(-3, -2, -10), V3(-5, 0, -10)), silver)
+    Triangle((V3(-4.5,0.5,-5),V3(-4.5,-0.45,-5),V3(-2,0.6,-5.5)),1,silver),
 
 ]
 r.render()
