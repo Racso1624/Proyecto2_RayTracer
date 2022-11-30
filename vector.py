@@ -9,6 +9,7 @@ class V3(object):
         self.x = x
         self.y = y
         self.z = z
+        self.coords = (x, y, z)
 
     def __add__(self, other):
         return V3(
