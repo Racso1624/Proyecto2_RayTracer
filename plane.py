@@ -14,6 +14,10 @@ class Plane(object):
         self.material = material
         
     def ray_intersect(self, origin, direction):
+
+        if (direction.y == 0):
+            direction.y = 1E-06
+            
         d = (origin.y + self.center.y) / direction.y
         impact = origin + (direction * d)
         normal = V3(0, 1, 0)
