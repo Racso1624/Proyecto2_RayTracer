@@ -19,7 +19,7 @@ class Triangle(object):
     vect = (direction * side_2)
     det = (side_1 @ vect)
 
-    if (-1E-06 < det < 1E-06):
+    if (-1E-08 < det < 1E-08):
       return None
 
     det_inv = (1 / det)
@@ -36,7 +36,7 @@ class Triangle(object):
 
     qvec = det_inv * (side_2 @ tvec)
 
-    if (qvec > 1E-06):
+    if (qvec > 1E-08):
 
       impact = (origin + (direction * qvec))
       normal = (side_1 * side_2).norm()
