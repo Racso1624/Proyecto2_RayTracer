@@ -13,7 +13,7 @@ from color import *
 
 max_recursion_depth = 3
 
-def refraction(I, N, roi):
+def refraction_objeto(I, N, roi):
     eta_i = 1
     eta_t = roi
 
@@ -122,7 +122,7 @@ class RayTracer(object):
             reflection_color = Color(0, 0, 0)
 
         if material.albedo[3] > 0:
-            refraction_direction = refraction(direction, intersect.normal, material.refractive)
+            refraction_direction = refraction_objeto(direction, intersect.normal, material.refractive)
             refraction_origin = intersect.point + (intersect.normal * 1.1)
             refraction_color = self.cast_ray(refraction_origin, refraction_direction, recursion + 1)
         else:
