@@ -13,10 +13,12 @@ from triangle import *
 from pyramid import *
 from plane import *
 from envmap import *
+from triangle import *
 
 #Materiales
 red_ball = Material(difusse=Color(255, 0, 0), albedo = [1, 0.1, 0.48, 0.3], spec = 50, refractive=50)
 yellow_ball = Material(difusse=Color(249,236,12), albedo = [1, 0.1, 0.48, 0.3], spec = 50, refractive=50) 
+yellow_star = Material(difusse=Color(1,1,100), albedo = [1, 0.1, 0.1, 0.1], spec = 1, refractive=1) 
 white = Material(difusse=Color(255, 255, 255), albedo = [1.3, 0.1, 0, 0], spec = 40, refractive=20)
 black = Material(difusse=Color(0, 0, 0), albedo = [1.3, 0.1, 0, 0], spec = 50, refractive=20)
 light_brown = Material(difusse=Color(204, 102, 53), albedo = [1, 0.2, 0.2, 0], spec = 50, refractive=50)
@@ -37,6 +39,7 @@ r.scene = [
     Pyramid((V3(-4.5, 1, -10), V3(1, 1, -9), V3(-1.5, -0.5, -9), V3(-4, 1, -9)), tree_leaves),
     Pyramid((V3(-4.5, 2.5, -10), V3(2, 2.5, -9), V3(-1.5, 0.5, -9), V3(-5, 2.5, -9)), tree_leaves),
     Cube(V3(-1.5, 2.98, -9), 1, tree_log),
+    Triangle((V3(-2, -1, -9), V3(-1, -1, -9), V3(-1.5, -2, -9)), yellow_star),
 
     #Esferas
     Sphere(V3(-2.7, 0, -8), 0.25, red_ball),
